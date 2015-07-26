@@ -13,7 +13,7 @@ then
   mv ./CandyPaper.vim ./.vim/colors/
 
   # install Vundle plugins
-  #vim +PluginInstall +qall
+  vim +PluginInstall +qall
 
   echo "All done!"
 else
