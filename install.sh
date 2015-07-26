@@ -15,7 +15,7 @@ then
   # install Vundle plugins
   #vim +PluginInstall +qall
 
-  echo "All done!\n"
+  echo "All done!"
 else
   echo "This script and the files contained in the package must be run out of your $HOME directory"       
 fi
