@@ -24,20 +24,27 @@ then
   if [ -z ${TMUX+x} ]
   then
     printf "tmux not installed -- skipping .tmux.conf install\n" | tee -a $WORKBENCHLOG
+
   else
     if [ -f $HOME/.tmux.conf ]
     then
       printf ".tmux.conf file present -- moving to .tmux.conf.old\n" | tee -a $WORKBENCHLOG
-      mv -f $HOME/.tmux.conf $HOME/.tmux.conf.old
+
+      if [ -f $HOME/.tmux.conf.old ]
+      then
+        cp $HOME/.tmux.conf.old ./backups/$WORKBENCHBACKUP/.tmux.conf.older
+        printf "...removed existing $HOME/.tmux.conf.old to ./backups/${WORKBENCHBACKUP}/.tmux.conf.older\n" | tee -a $WORKBENCHLOG
+        rm -f $HOME/.tmux.conf.old
+      fi
+
+      mv $HOME/.tmux.conf $HOME/.tmux.conf.old
+      printf "...moved to $HOME/.tmux.conf.old\n" | tee -a $WORKBENCHLOG
       cp $HOME/.tmux.conf.old ./backups/$WORKBENCHBACKUP
       printf "...copied to ./backups/${WORKBENCHBACKUP}\n" | tee -a $WORKBENCHLOG
-
-      printf "...installing .tmux.conf\n\n" | tee -a $WORKBENCHLOG
-      cp tmux.conf $HOME/.tmux.conf
-    else
-      printf "tmux is present -- installing .tmux.conf\n\n" | tee -a $WORKBENCHLOG
-      cp tmux.conf $HOME/.tmux.con
     fi
+
+    printf "tmux is present -- installing .tmux.conf\n\n" | tee -a $WORKBENCHLOG
+    cp tmux.conf $HOME/.tmux.conf
   fi
 
   if [ -d $HOME/.vim ]
@@ -47,12 +54,12 @@ then
     if [ -d $HOME/.vim.old ]
     then
       cp -r $HOME/.vim.old ./backups/$WORKBENCHBACKUP/vim.older
-      echo "...removed existing $HOME/.vim.old to ./backups/${WORKBENCHBACKUP}/.vim.older" | tee -a $WORKBENCHLOG
+      printf "...removed existing $HOME/.vim.old to ./backups/${WORKBENCHBACKUP}/.vim.older\n" | tee -a $WORKBENCHLOG
       rm -rf $HOME/.vim.old
     fi
 
     mv -f $HOME/.vim $HOME/.vim.old
-    printf "...moved to $HOME/.vim.old" | tee -a $WORKBENCHLOG
+    printf "...moved to $HOME/.vim.old\n" | tee -a $WORKBENCHLOG
     cp -r $HOME/.vim.old ./backups/$WORKBENCHBACKUP
     printf "...copied to ./backups/${WORKBENCHBACKUP}\n\n" | tee -a $WORKBENCHLOG
   fi
@@ -60,8 +67,17 @@ then
   if [ -f $HOME/.vimrc ]
   then
     printf "$HOME/.vimrc exists -- moving to $HOME/.vimrc.old\n" | tee -a $WORKBENCHLOG
-    mv -f $HOME/.vimrc $HOME/.vimrc.old
-    cp -r $HOME/.vimrc.old ./backups/$WORKBENCHBACKUP
+
+    if [ -f $HOME/.vimrc.old ]
+    then
+      cp $HOME/.vimrc.old ./backups/$WORKBENCHBACKUP/.vimrc.older
+      printf "...removed existing $HOME/.vimrc.old to ./backups/${WORKBENCHBACKUP}/.vimrc.older" | tee -a $WORKBENCHLOG
+      rm -f $HOME/.vimrc.old
+    fi
+
+    mv $HOME/.vimrc $HOME/.vimrc.old
+    printf "...moved to $HOME/.vimrc.old\n" | tee -a $WORKBENCHLOG
+    cp $HOME/.vimrc.old ./backups/$WORKBENCHBACKUP
     printf "...copied to ./backups/${WORKBENCHBACKUP}\n\n" | tee -a $WORKBENCHLOG
   fi
 
