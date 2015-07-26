@@ -1,5 +1,5 @@
 #!/bin/bash
-# Install VIM configuration for local account
+# Install VIM & tmux configuration for local account
 
 # If tmux is installed, install .tmux.conf and backup existing one if present
 if [ -z ${TMUX+x} ]
