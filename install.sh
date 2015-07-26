@@ -103,7 +103,7 @@ then
   # log directory tree of backed up files
   printf "\nContents of ./backups/${WORKBENCHBACKUP}\n" >> $WORKBENCHLOG
   ls -al ./backups/$WORKBENCHBACKUP/ >> $WORKBENCHLOG
-  printf "\nWrote out log to ${WORKBENCHLOG}...\n"
+  printf "\nWrote out log to ${WORKBENCHLOG}\n"
   printf "\n" >> $WORKBENCHLOG
 
   printf "All done!\n" | tee -a $WORKBENCHLOG
