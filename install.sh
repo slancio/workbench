@@ -97,4 +97,4 @@ else
   exit 1
 fi
 
-rm -r .workbenchlock
+rm -rf .workbenchlock
