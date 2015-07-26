@@ -1,17 +1,22 @@
 #!/bin/bash
 # Install VIM configuration for local account
 
-# build directories
-mkdir .vim
-mkdir .vim/colors
+if [ $(pwd) == $HOME ]
+then
+  # download Vundle
+  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-# move theme to appropriate folder
-mv ./CandyPaper.vim ./.vim/colors/
+  # build directories
+  mkdir .vim/colors
 
-# download Vundle
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  # move theme to appropriate folder
+  mv ./CandyPaper.vim ./.vim/colors/
 
-# install Vundle plugins
-#vim +PluginInstall +qall
+  # install Vundle plugins
+  #vim +PluginInstall +qall
 
-echo "All done!\n"
+  echo "All done!\n"
+else
+  echo "This script and the files contained in the package must be run out of your $HOME directory"       
+fi
+
