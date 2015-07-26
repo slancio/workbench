@@ -12,10 +12,10 @@ else
     mv $HOME/.tmux.conf $HOME/.tmux.conf.old
 
     echo "...installing .tmux.conf"
-    mv tmux.conf $HOME/.tmux.conf
+    cp tmux.conf $HOME/.tmux.conf
   else
     echo "tmux is present -- installing .tmux.conf"
-    mv tmux.conf $HOME/.tmux.con
+    cp tmux.conf $HOME/.tmux.con
   fi  
 fi
 
@@ -32,7 +32,7 @@ then
 fi
 
 # install .vimrc
-mv ./.vimrc $HOME/.vimrc
+cp ./.vimrc $HOME/.vimrc
 
 # download Vundle
 git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
@@ -41,7 +41,7 @@ git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 mkdir $HOME/.vim/colors
 
 # move theme to appropriate folder
-mv ./CandyPaper.vim $HOME/.vim/colors/
+cp ./CandyPaper.vim $HOME/.vim/colors/
 
 # install Vundle plugins
 vim +PluginInstall +qall
