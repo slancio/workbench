@@ -32,18 +32,22 @@ then
 fi
 
 # install .vimrc
+echo "installing .vimrc"
 cp ./.vimrc $HOME/.vimrc
 
 # download Vundle
+echo "downloading Vundle"
 git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 
 # build additioanl directories
 mkdir $HOME/.vim/colors
 
 # move theme to appropriate folder
+echo "installing vim themes"
 cp ./CandyPaper.vim $HOME/.vim/colors/
 
 # install Vundle plugins
+echo "installing vim plugins"
 vim +PluginInstall +qall
 
 echo "All done!"
