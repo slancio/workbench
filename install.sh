@@ -71,7 +71,7 @@ then
     if [ -f $HOME/.vimrc.old ]
     then
       cp $HOME/.vimrc.old ./backups/$WORKBENCHBACKUP/.vimrc.older
-      printf "...removed existing $HOME/.vimrc.old to ./backups/${WORKBENCHBACKUP}/.vimrc.older" | tee -a $WORKBENCHLOG
+      printf "...removed existing $HOME/.vimrc.old to ./backups/${WORKBENCHBACKUP}/.vimrc.older\n" | tee -a $WORKBENCHLOG
       rm -f $HOME/.vimrc.old
     fi
 
