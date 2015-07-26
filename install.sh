@@ -4,8 +4,6 @@
 # Lock the script
 if mkdir .workbenchlock
 then
-  # wait an arbitrary amount of time to try and avoid race condition if run twice
-  sleep 3
 
   # set up folder for backups
   WORKBENCHBACKUP=$(date +%Y%m%d%H%M%S)
