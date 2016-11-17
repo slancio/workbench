@@ -10,6 +10,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Shougo/vinarise.vim'
 Plugin 'lambdalisue/vim-manpager'
+Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
 filetype plugin on
