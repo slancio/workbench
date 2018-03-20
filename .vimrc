@@ -28,6 +28,8 @@ set expandtab
 
 " UI Settings
 set number
+set list
+set listchars=trail:·,tab:»·,eol:¬
 set showcmd
 set cursorline
 filetype indent on
