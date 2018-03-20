@@ -51,3 +51,5 @@ endif
 set incsearch
 set hlsearch
 
+" Toggles
+set pastetoggle=<F3>
