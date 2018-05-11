@@ -53,3 +53,11 @@ set hlsearch
 
 " Toggles
 set pastetoggle=<F3>
+
+" Text formatting
+set tw=72
+set colorcolumn=80
+set fo+=1rnojmBl
+set fo-=t
+set wm=0
+set statusline=...[%{&fo}]...
